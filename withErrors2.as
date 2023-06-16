@@ -1,0 +1,26 @@
+; file ps.as
+
+.entry LIST
+.extern W
+MAIN:		add	r3, LIST
+LOOP:		prn	#48
+		lea	W, r6
+.extern W
+		inc	r6
+		mov	r3 ,K
+		sub	r1,r4
+		bne	END
+		cmp	K,#-6
+		bne	&W
+		dec	W
+.entry MAIN
+.entry NOTEXIST
+		jmp	&LOOP
+		add	L3, L3
+END:		stop
+
+STR:		.string "abcd"
+LIST:		.data   6, -9
+		.data 	-100
+K:		.data   31
+.extern L3		
